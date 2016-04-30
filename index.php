@@ -29,7 +29,9 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Conectar</button>
       </form>
-
+            <div class="form-signin">
+                <button id="btnRegistrar" class="btn btn-lg btn-primary btn-block" type="submit" value="enviar" onclick = "location='Vista/Registro.php'">Registrar</button>
+            </div>
     </div> 
  
     <!-- Librería jQuery requerida por los plugins de JavaScript -->
