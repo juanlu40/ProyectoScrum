@@ -9,30 +9,33 @@
     <link href="../Controlador/CSS/bootstrap.min.css" rel="stylesheet" media="screen">
     <!-- CUSTOM CSS -->
     <link href="../Controlador/CSS/custom.css" rel="stylesheet">
+    <link href="../Controlador/CSS/error.css" rel="stylesheet">
  
  
   </head>
   <body>
+        <div class="container">
 
-        <form class="form-signin" action="../Controlador/ControlRegistro.php" method="post">
+            <form class="form-signin" action="../Controlador/ControlLogin.php" method="post">
           <img id="logo" src="../Controlador/Recursos/logo.png" />
+           <label id="Resultado"><?php echo $error.$agregado;?></label>
         <br />
-        <label for="nombre" class="sr-only">Indique su nombre</label>
-        <input type="text" id="nombre" class="form-control" name="nombre" Pattern="[A-Za-z\sáéíóúñÑ]{3,20}" placeholder="Indique su nombre" required autofocus>
-         <label for="apellidos" class="sr-only">Indique su/s apellido/s</label>
-        <input type="text" id="apellidos" class="form-control" name="apellidos" Pattern="[A-Za-z\sáéíóúñÑ]{3,35}" placeholder="Indique su/s apellido/s" required>
-         <label for="nick" class="sr-only">Indique su nick</label>
-        <input type="text" id="nick" class="form-control" name="nick" Pattern="[A-Za-z\sáéíóúñÑ]{3,20}" placeholder="Indique su nick" required>
         <label for="email" class="sr-only">Dirección de correo</label>
-        <input type="email" id="email" class="form-control" name="correo" placeholder="Direccion de correo" required>
+        <input type="email" id="email" class="form-control" name="correo" value="<?php echo $correo;?>" placeholder="Direccion de correo" required autofocus>
         <label for="password" class="sr-only">Contraseña</label>
         <input type="password" id="password" class="form-control" name="password" Pattern="[A-Za-z0-9]{4,20}" placeholder="Contraseña (a~Z0~9)min 4 y max 20" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Registrar</button>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="recuerdame"> Recordarme
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Conectar</button>
       </form>
-      
-      <div class="form-signin">
-                <button id="btnVolver" class="btn btn-lg btn-primary btn-block" type="submit" value="enviar" onclick="location='../index.php'">Volver</button>
-      </div>
+            <div class="form-signin">
+                <button id="btnRegistrar" class="btn btn-lg btn-primary btn-block" type="submit" value="enviar" onclick = "location='../Vista/Registro.php'">Registrar</button>
+            </div>
+    </div> 
+ 
     <!-- Librería jQuery requerida por los plugins de JavaScript -->
     <script src="http://code.jquery.com/jquery.js"></script>
  
