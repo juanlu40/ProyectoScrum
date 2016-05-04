@@ -15,13 +15,13 @@
   <body>
         <div class="container">
 
-      <form class="form-signin">
+            <form class="form-signin" action="Controlador/ControlLogin.php" method="post">
           <img id="logo" src="Controlador/Recursos/logo.png" />
         <br />
         <label for="email" class="sr-only">Dirección de correo</label>
-        <input type="email" id="email" class="form-control" placeholder="Direccion de correo" required autofocus>
+        <input type="email" id="email" class="form-control" name="correo" placeholder="Direccion de correo" required autofocus>
         <label for="password" class="sr-only">Contraseña</label>
-        <input type="password" id="password" class="form-control" placeholder="Contraseña" required>
+        <input type="password" id="password" class="form-control" name="password" Pattern="[A-Za-z0-9]{4,20}" placeholder="(a~Z0~9)min 4 y max 20" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="recuerdame"> Recordarme
