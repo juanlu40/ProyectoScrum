@@ -13,7 +13,7 @@
  
   </head>
   <body>
-        <div class="container">
+        <div class="container" id="indexcontainer">
 
             <form class="form-signin" action="Controlador/ControlLogin.php" method="post">
           <img id="logo" src="Controlador/Recursos/logo.png" />
