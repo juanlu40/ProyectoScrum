@@ -17,7 +17,11 @@
              <div class="row">
                  <div class="col-lg-4"></div>
                  <div class="col-lg-4"><img id="logoProyectos" src="../Controlador/Recursos/logo.png" /></div>
-                 <div class="col-lg-4"></div>
+                 <div id="btnProyecto" class="col-lg-4">
+                      <button  class="btn btn-lg btn-primary btn-block" type="button" data-toggle="modal" data-target="#popupBtnProyecto">Añadir Proyecto</button>
+                      <button  class="btn btn-lg btn-primary btn-block" type="button" >Borrar Proyecto</button>
+                      <button  class="btn btn-lg btn-primary btn-block" type="button" type="submit" onclick = "location='../index.php'" >Atras</button>
+                 </div>
              </div>
             <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle btn-lg btn-primary btn-block" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -38,6 +42,28 @@
               </div>
         </div> 
  
+        <div id="popupBtnProyecto" class="modal fade" tabindex="-1" role="dialog">
+         <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title">Añadir Proyecto</h4>
+                       <form class="form-signin" action="" method="post">
+                            <br />
+                          <label for="nombreProyecto" class="sr-only">Nombre Proyecto</label>
+                          <input type="text" id="nombreProyecto" class="form-control" name="nombreProyecto" placeholder="Nombre del Proyecto" required autofocus>
+                        </form>
+               <br />
+             <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-toggle="modal" data-dismiss="modal">Cerrar</button>
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-dismiss="modal">Añadir Proyecto</button>
+             </div>
+           </div><!-- /.modal-content -->
+         </div><!-- /.modal-dialog -->
+       </div><!-- /.modal --> 
+        </div>
+      
+     
     <!-- Librería jQuery requerida por los plugins de JavaScript -->
     <script src="http://code.jquery.com/jquery.js"></script>
  

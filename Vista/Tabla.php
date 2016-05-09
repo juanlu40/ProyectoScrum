@@ -47,13 +47,66 @@
                     <div class="relleno">Relleno</div> 
                 </div>
                 <div class="col-lg-2" id="botonesTabla">
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Añadir HU</button>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Atras</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="button" data-toggle="modal" data-target="#popupBtnTabla">Añadir HU</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="button" data-toggle="modal" data-target="#popupBtnSprint">Añadir Sprint</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="button">Atras</button>
                 </div>
               </div>
         </div> 
+        <div id="popupBtnTabla" class="modal fade" tabindex="-1" role="dialog">
+         <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title">Añadir Sprint</h4>
+                       <form class="form-signin" action="" method="post">
+                            <br />
+                          <label for="nombreHu" class="sr-only">Nombre HU</label>
+                          <input type="text" id="nombreHu" class="form-control" name="nombreHu" placeholder="nombreHu" required autofocus>
+                           <label for="valor" class="sr-only">Valor</label>
+                          <input type="text" id="valor" class="form-control" name="valor" placeholder="Valor" required>
+                          <label for="nick" class="sr-only">Más informacion</label>
+                          <input type="text" class="form-control" placeholder="Campo de texto">
+                          <br />
+                        </form>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+               <button type="button" class="btn btn-primary">Guardar</button>
+             </div>
+           </div><!-- /.modal-content -->
+         </div><!-- /.modal-dialog -->
+       </div><!-- /.modal --> 
+        </div>
+       
+       
+ <div id="popupBtnSprint" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <h4 class="modal-title">Añadir Sprint</h4>
+                       <form class="form-signin" action="" method="post">
+                            <br />
+                          <label for="numeroSprint" class="sr-only">Numero Sprint</label>
+                          <input type="text" id="numeroSprint" class="form-control" name="numeroSprint" placeholder="Numero Sprint" required autofocus>
+                           <label for="fInicio" class="sr-only">Fecha de Inicio</label>
+                          <input type="text" id="fInicio" class="form-control" name="fInicio" placeholder="Fecha de inicio" required>
+                          <label for="fFin" class="sr-only">Fecha de Fin</label>
+                          <input type="text" id="fFin" class="form-control" name="fFin" placeholder="Fecha de fin" required>
+                          <br />
+                        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+       
+       
  
-    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+        <!-- Librería jQuery requerida por los plugins de JavaScript -->
     <script src="http://code.jquery.com/jquery.js"></script>
  
     <!-- Todos los plugins JavaScript de Bootstrap (también puedes
