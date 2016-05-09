@@ -14,21 +14,20 @@
   </head>
   <body>
         <div class="container" id="indexcontainer">
-
-            <form class="form-signin" action="Controlador/ControlLogin.php" method="post">
-          <img id="logo" src="Controlador/Recursos/logo.png" />
-        <br />
-        <label for="email" class="sr-only">Dirección de correo</label>
-        <input type="email" id="email" class="form-control" name="correo" placeholder="Direccion de correo" required autofocus>
-        <label for="password" class="sr-only">Contraseña</label>
-        <input type="password" id="password" class="form-control" name="password" Pattern="[A-Za-z0-9]{4,20}" placeholder="(a~Z0~9)min 4 y max 20" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="recuerdame"> Recordarme
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Conectar</button>
-      </form>
+            <div class="form-signin">
+                <img id="logo" src="Controlador/Recursos/logo.png" />
+                <br />
+                <label for="email" class="sr-only">Dirección de correo</label>
+                <input type="email" id="email" class="form-control" name="correo" placeholder="Direccion de correo" required autofocus>
+                <label for="password" id="passwd" class="sr-only">Contraseña</label>
+                <input type="password" id="password" class="form-control" name="password" Pattern="[A-Za-z0-9]{4,20}" placeholder="(a~Z0~9)min 4 y max 20" required>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="recuerdame"> Recordarme
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" id="conectar">Conectar</button>
+            </div>
             <div class="form-signin">
                 <button id="btnRegistrar" class="btn btn-lg btn-primary btn-block" type="submit" value="enviar" onclick = "location='Vista/Registro.php'">Registrar</button>
             </div>
@@ -42,6 +41,6 @@
          plugins que utilices) -->
     
     <script src="Controlador/JavaScript/bootstrap.min.js"></script>
-     <script src="Controlador/JavaScript/custom.js"></script>
+    <script src="Controlador/JavaScript/custom.js"></script>
   </body>
 </html>

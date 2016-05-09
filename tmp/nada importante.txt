@@ -1,0 +1,13 @@
+Este archivo solo contiene elemento usados para trasladarlos de un archivo a otro
+
+
+Patron de contraseña pra comprobar si esta dentro de lo aceptable
+[A-Za-z0-9]{4,20}
+
+Necesario un prottipo de la caja que va en las tareas
+
+<div class="cajamovil" id="">          
+    <h4>nombre: asd</h4>
+    <p>valor 5</p>
+    <button id="btnVerMas" class="btn btn-ms btn-primary" type="submit" value="enviar">ver más</button>
+</div>
