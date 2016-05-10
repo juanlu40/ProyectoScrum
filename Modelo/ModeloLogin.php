@@ -11,49 +11,70 @@ namespace ProyectoScrum\Modelo;
 class ModeloLogin {
     
     /**
-     *Usuario de ejemplo, con contraseña.
+     * variables de el login
      * 
-     * variables para simular una base de datos que aun no se puede
-     * conectar con ella.
+     * variables para una base de datos.
      * 
-     * @var Variable de ejemplo<var>usuario</var> y password <var>usuario</var>.
+     * @var Variable de logeo en base de datos <var>log</var> y Resultado
+     *  de las consultas <var>Resultado</var>.
      */
-    private $usuarioEjemplo="ejemplo@gmail.com";
-    private $passwordEjemplo="ejemplo";
+    private $log;
+    private $Resultado;
     
-    /**
-     * Metodo de comprobacion de usuario.
+    /*
+     * Metodo de conexion BD.
      * 
-     * Este metodo comprueba si el nuevo usuario (su correo)
-     *  ya existe en la base de datos (sensible a mayusculas).
-     * 
-     * @param Variable de entrada<var>correo</var>.
-     * @return Validacion.
+     * Este metodo hace log en la base de datos.
      */
     
-    public function comprobarCorreoExistente($correo){
-        $valido=false;
-        if($correo == $this->usuarioEjemplo){
-        $valido=true;
+    public function conexionLogin(){
+        $this->log = new \mysqli("localhost","root","0123456789","bdconsultas");
+        if ($this->log->connect_error){
+            throw new \Exception("Conexion abortada");
         }
-        return $valido;
     }
     
-    /**
-     * Metodo de Validar Contraseña.
+    /*
+     * Metodo de comprobacion de email
      * 
-     * Este metodo comprueba si el nuevo usuario (su contrasena)
-     *  ya existe en la base de datos (sensible a mayusculas).
-     * 
-     * @param Variable de entrada<var>password</var>.
-     * @return Validacion.
+     * Este metodo nos comprueba que nuestro email existe en la base de datos o no
      */
-    
-    public function comprobarPasswordValida($password){
-        $valido=false;
-        if($password == $this->passwordEjemplo){
-        $valido=true;
+    public function compruebaEmail($email){
+        $this->Resultado=$this->log->query("SELECT email FROM datos WHERE email='".$email."';");
+        if ($this->Resultado->num_rows > 0){
+            return true;
+        }else{
+            return false;
         }
-        return $valido;
+    }
+    /*
+     * Metodo de comprobar password
+     * 
+     * Este metodo nos comprueba que la password existe o no para ese email.
+     */
+    public function compruebaPassword($password,$email){
+        $this->Resultado=$this->log->query("SELECT * FROM datos WHERE password='".$password."' AND email='".$email."';");
+        if ($this->Resultado->num_rows > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /*
+     * Metodo de cierre
+     * 
+     * Este metodo cierra el log de la base de datos. 
+     */
+    public function cierre(){
+        $this->log->close();
+    }
+    /*
+     * Metodo de errores
+     * 
+     * Nos devuelve una cadena de error por si no coinciden los datos instroducidos.
+     */
+    public function error($tipo){
+        $error =["error"=>"El ".$tipo." no coincide."];
+        echo json_encode($error);
     }
 }
