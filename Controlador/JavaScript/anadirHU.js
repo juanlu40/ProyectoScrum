@@ -4,8 +4,15 @@ var valor;
 
 var conexion = { //metodos de conexion, envio y recepcion de datos al servidor
     http_request : false,
+    siObtengoResultado : function (callback){
+        this.callback=callback;
+    },
+    respondeBD : function (objeto) {
+        conexion.siObtengoResultado(objeto);
+    },
     enviarDatos : function (paquete) {
-        var url = "http://projectscrum.servehttp.com/Controlador/Pruebas.php";//falta saber como se llama el controlador
+        var url = "http://localhost/Controlador/Pruebas.php";//falta saber como se llama el controlador
+        console.log(JSON.stringify(paquete));
         this.envio(url, paquete);
     },
     envio : function (url, paquete) {
@@ -37,7 +44,8 @@ var conexion = { //metodos de conexion, envio y recepcion de datos al servidor
     alertContents : function () {
         if (conexion.http_request.readyState == 4) {
             if (conexion.http_request.status == 200) {
-                datos.leerDatosRetornados(JSON.parse(conexion.http_request.responseText));
+                console.log(JSON.parse(conexion.http_request.responseText));
+                datos.respondeBD(JSON.parse(conexion.http_request.responseText));
             } else {
                 alert('Hubo problemas con la petición.');
             }
@@ -50,8 +58,9 @@ var datos = { //metodos de geston de paquetes y datos de la pagina
         descripcion = document.getElementById("info").value;
         valor = document.getElementById("valor").value;
         if(nombre.length!=0 && valor!=0){
+            conexion.siObtengoResultado(vista.mostrar)
             var paqueteDeEnvio = {
-                operacion : "insercion",
+                operacion : "insert",
                 tabla : "tareas",
                 objeto : {
                     nombre : nombre,
