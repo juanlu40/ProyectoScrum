@@ -17,8 +17,8 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="cabecera">Backlog</div>
-                    <div class="relleno">
-                        <div class="cajamovil">            
+                    <div class="relleno" id="backlog">
+                        <div class="cajamovil">   
                             <!-- este espacio es para mantener la estructura de la tabla, no se debe borrar !-->
                         </div>
                     </div> 
@@ -51,9 +51,10 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Añadir Sprint</h4>
+                        <h4 class="modal-title">Añadir HU</h4>
                         <form class="form-signin" action="" method="post">
                             <br />
+                            <div id="error"></div>
                             <label for="nombreHu" class="sr-only">Nombre HU</label>
                             <input type="text" id="nombreHu" class="form-control" name="nombreHu" placeholder="Nombre HU" required autofocus>
                             <label for="valor" class="sr-only">Valor</label>
@@ -64,7 +65,7 @@
                         </form>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+                            <button type="button" class="btn btn-primary" id="anadirHU">Guardar</button>
                         </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
@@ -108,5 +109,6 @@
     
     <script src="../Controlador/JavaScript/bootstrap.min.js"></script>
     <script src="../Controlador/JavaScript/custom.js"></script>
+    <script src="../Controlador/JavaScript/anadirHU.js"></script>
     </body>
 </html>
